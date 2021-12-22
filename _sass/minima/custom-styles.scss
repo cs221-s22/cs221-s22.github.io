@@ -1,0 +1,31 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+.site-header {
+    background-color: $dons-green;
+    border-top: none;
+    border-bottom: 4px solid $dons-yellow;
+  }
+  
+  .site-title, .site-title:visited {
+    color: white;
+    font-weight: 400;
+  }
+  
+  .site-nav .page-link {
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .post-link {
+      color: $dons-teal;
+  }
+
+  .page-heading {
+      color: $dons-teal;
+  }
+
+  .due-date {
+    color: $dons-red;
+    font-weight: bold;
+  }
