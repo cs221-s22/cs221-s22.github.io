@@ -5,13 +5,46 @@ permalink: /syllabus/
 ---
 
 ## Learning Objectives
-1. Fill these in
+Our objectives are to learn:
+1. How to develop and debug software in the Linux
+command line environment
+1. How to develop software in the C language
+1. How to handle files and network connections
+1. How to represent numbers in binary and hexadecimal
+1. How data is represented in memory, including C pointers
+1. How to write memory-safe and secure code in C
 
 ## Assessments
 1. Fill these in
 
 ## Course Policies
-1. Fill these in
+1. Class Participation counts, including attendance, asking questions and answering my questions, office hours, and Piazza
+1. Neatness counts; we will discuss how to write readable and maintainable code
+1. Original Work
+    1. You may get explanatory help from the instructor, TAs, friends, tutors, or Internet sites
+    1. You must turn in only original work that you personally developed and can explain
+    1. You must not provide your original work to other students
+    1. No credit will be given for work which violates this policy
+1. Deadlines
+    1. If you are not done with an assignment by the deadline, you should turn in what you have working to get full credit for that work
+    1. Late work and corrections may be turned in for 50% credit, up to one week after grades are posted
+    1. Extensions for full credit are not given except in extenuating circumstances, which you must discuss with the instructor in advance
+1. Letter Grades are assigned according to the following table, without rounding or curving
+
+    | Grade shown in Canvas | Letter Grade |
+    | --- | --- |
+    | 100.0% - 93.33%   | A  |
+    | < 93.33% - 90.0%  | A- |
+    | < 90.0% - 86.67%  | B+ |
+    | < 86.67% - 83.33% | B  |
+    | < 83.33% - 80.0%  | B- |
+    | < 80.0% - 76.67%  | C+ |
+    | < 76.67% - 73.33% | C  |
+    | < 73.33% - 70.0%  | C- |
+    | < 70.0% - 66.67%  | D+ |
+    | < 66.67% - 63.33% | D  |
+    | < 63.33% - 60.0%  | D- |
+    | < 60.0%           | F  |
 
 ## University Policies
 
