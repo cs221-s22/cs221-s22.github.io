@@ -28,7 +28,7 @@ favicon: favicon.ico  # Icon displayed in the tab
 due_date_format: "%a, %b %-d, %Y at %I:%M %p" # Thu, Jan 27, 2022 at 11:59 PM
 
 # Build settings
-remote-theme: jekyll/minima@7a326eb
+remote_theme: jekyll/minima@7a326eb
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
