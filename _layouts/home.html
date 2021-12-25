@@ -26,7 +26,7 @@ layout: default
           {{ row.date | date: date_format }}
         </td>
         <td>
-          {{ row.topics | markdownify }} 
+          {{ row.topics | markdownify | remove: '<p>' | remove: '</p>' }} 
         </td>
         <td>
           {%- if row.slides -%}
