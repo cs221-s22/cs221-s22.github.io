@@ -25,12 +25,12 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 ## Create an ssh key pair (if you don't already have one)
 1. Create an ssh key pair using this command in your terminal
     ```sh
-    $ ssh-keygen -t ed25519 -C "your_email@example.com"
+    me@mylaptop:~ $ ssh-keygen -t ed25519 -C "your_email@example.com"
     ```
 1. You will be asked to provide a passphrase which is used to encrypt your private key. Do not forget this passphrase.
 1. ```sh
     me@mylaptop:~ $ cd ~/.ssh
-    me@mylaptop:.ssh $ ls
+    me@mylaptop:~/.ssh $ ls
     id_ed25519
     id_ed25519.pub
     ```
@@ -39,13 +39,13 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     - `id_ed25519.pub` is your public key. This file can be uploaded to stargate and Github.com
 1. Configure your laptop so your private key can be used to authenticate you on github.com
     ```sh
-    me@mylaptop:.ssh $ cat >config
+    me@mylaptop:~/.ssh $ cat >config
     Host *
       ForwardAgent yes
     ^D
     ```
 
-## Set up github with your public key
+## Set up Github with your public key
 1. Copy your public key to your laptop's clipboard:
     - Windows Terminal: `$ type id_ed25519.pub | clip`
     - WSL: `$ cat id_ed25519.pub | xclip`
@@ -54,7 +54,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 1. When logged into github.com go to Profile > Settings > SSH and GPG Keys and paste the contents of your public key
 1. Test your ssh access to github.com from your terminal app
     ```sh
-    $ ssh git@github.com
+    me@mylaptop:~ $ ssh git@github.com
     Hi username! You've successfully authenticated, but GitHub does not provide shell access.
     Connection to github.com closed.
     ```
@@ -103,11 +103,10 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     username@vlab01:lab01-yourgithubid $ ./hello
     hello world
     ```
-1. Edit the file and change `"hello world\n"` to `"hello cs221\n"` in lower case exactly as shown
+1. Edit `hello.c` and change `"hello world\n"` to `"hello cs221\n"` in lower case exactly as shown
 1. Save the file and recompile it
 1. Commit your changes to the local repo on the lab machine
     ```sh
-    username@vlab01:lab01-yourgithubid $ git add hello.c
     username@vlab01:lab01-yourgithubid $ git commit -m"change world to cs221" hello.c
     ```
 1. Push your changes from the local repo to the remote repo on github.com
