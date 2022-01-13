@@ -26,8 +26,9 @@ command line environment
     1. You must not provide your original work to other students
     1. No credit will be given for work which violates this policy
 1. Deadlines
-    1. If you are not done with an assignment by the deadline, you should turn in what you have working to get full credit for that work
-    1. Late work and corrections may be turned in for 50% credit, up to one week after grades are posted
+    1. **Labs** will not be accepted after the deadline
+    1. If you are not done with a **project** by the deadline, you should turn in what you have working to get full credit for that work
+    1. Project corrections may be turned in for 50% credit, up to one week after grades are posted
     1. Extensions for full credit are not given except in extenuating circumstances, which you must discuss with the instructor in advance
 1. Letter Grades are assigned according to the following table, without rounding or curving
 

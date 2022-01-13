@@ -1,6 +1,6 @@
 ---
 layout: assignment
-due: 2022-01-27 23:59:59 -0800
+due: 2022-01-31 23:59:59 -0800
 permalink: assignments/lab01.html
 title: Lab01 - Environment Setup
 github_url: https://classroom.github.com/a/hd8gWiyP
