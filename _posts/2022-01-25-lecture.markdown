@@ -2,6 +2,6 @@
 layout: post
 topics: Course introduction
 date:   2022-01-25 08:00:00 -0800
-slides: [slides/intro.html, slides/c-for-python-programmers.html]
+slides: [slides/intro.html, slides/python.html]
 ---
 
