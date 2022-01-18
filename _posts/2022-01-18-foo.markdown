@@ -1,7 +1,0 @@
----
-layout: post
-topics: hi Greg
-date:   2022-01-18 08:00:00 -0800
-slides: [slides/intro.html, slides/python.html]
----
-
