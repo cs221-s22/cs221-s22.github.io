@@ -19,7 +19,7 @@ others have the same question
 | [{{person.name}}](mailto:{{person.email}}) ({{person.role}}) | {{person.office_hours}}) |
 {% endfor %}
 
-If our regular office hours don't match your schedule, please contact us on Piazza to make an appointment at a mutually available time.
+If our regular office hours don't match your schedule, please contact us on CampusWire to make an appointment at a mutually available time.
 
 ### CS Tutoring Center
 
