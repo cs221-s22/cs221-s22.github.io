@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Slides | CS 221 - C and Systems Programming</title>
+    <meta name="description" content="">
+    <meta name="author" content="Phil Peterson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/slides/lab01">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="CS 221 - C and Systems Programming" href="/feed.xml"/>
+
+    <!-- Code highlighting theme used for highlight.js in reveal.js slides -->
+    <link rel="stylesheet" href="/assets/plugin/highlight/classic-like.css">
+
+		<!-- Code highlighting theme used for rouge in jekyll pages
+    <link rel="stylesheet" href="/assets/css/rouge-highlight/github-dark.css">
+    -->
+    <!-- Reveal CSS -->
+    <link rel="stylesheet" href="/assets/dist/reset.css">
+    <link rel="stylesheet" href="/assets/dist/reveal.css">
+    <link rel="stylesheet" href="/assets/dist/theme/dons.css" id="theme">
+
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown
+                 data-separator="^---"
+                 data-separator-vertical="^___"
+                 data-charset="utf-8"
+                 data-notes="^Note:">
+            <script type="text/template"># Lab01 prep
+---
+# Shell introduction
+
+1. The shell (`sh`) is the program which interprets your commands
+
+1. Conventionally, `sh` uses `$` as a prompt for your next command
+
+___
+## Print working directory
+
+1. The directories in the filesystem form a tree. To see which 
+directory we're currently working in
+    ```sh
+    $ pwd
+    /home/phpheterson
+    ```
+1. Shows that we're in my home directory. The home directory is abbreviated with the tilde character (`~`)
+
+___
+## Change directory
+
+1. To change the working directory
+    ```sh
+    $ cd foo
+    ```
+1. Now we're in `/home/phpeterson/foo` or `~/foo`
+
+___
+## List directory contents
+
+1. To list the files and directories contained in the working directory
+    ```sh
+    $ ls
+    afile adirectory
+    ```
+
+___
+## Manual pages
+
+If you don't know how to use a command, the online manual can help you
+
+```sh
+$ man ls
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about the FILEs (the current directory by default).  Sort
+       entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+...
+```
+---
+# Secure shell (ssh)
+
+1. `ssh` runs a shell session on another computer on the network
+
+```sh
+$ ssh phpeterson@stargate.cs.usfca.edu
+```
+
+2. Now I'm running as the user phpeterson on the host (computer) named
+`stargate.cs.usfca.edu`
+
+___
+## user@host
+
+1. The shell has a special variable called `PS1` which shows the user and host
+
+2. You can customize `PS1` by editing `~/.bashrc` and then running 
+    ```sh
+    $ source ~/.bashrc
+    ```
+to force the shell to reevaluate `PS1`
+___
+## Public and Private Keys
+
+1. ssh uses the same [Public Key Cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) that https uses to secure web browsing
+
+1. PKI can provide both authentication and encryption
+
+1. PKI uses a "public key" and a "private key" which together comprise an "key pair"
+
+___
+## Encryption
+
+1. A user Bob has a public key and a private key. He sends his public key to another user, Alice
+
+1. Alice has a public key and a private key. She sends her public key to Bob
+
+1. Bob can compute a new secret using his private key and Alice's public key
+
+1. Alice can compute the same secret using her private key and Bob's public key
+___
+## Key Exchange
+
+1. Now that Bob and Alice share a secret which was not transmitted, they
+can use that secret to exchange encryption keys securely.
+
+___
+## Authentication
+
+1. Another useful characteristic of the "handshake" is that Alice can
+prove that she knows her private key without revealing its value
+
+1. Therefore stealing the value of a private key could allow one person 
+to impersonate another
+
+1. Protect your private key with a good passphrase
+---
+# Version control using git
+___
+## Git
+
+1. `git` is a program which calculates the changes to a file from
+one version of the file to the next
+
+1. The database of such changes is called a "repository"
+
+1. In the professional world, everyone uses `git` to track 
+    1. which changes are included in a software release
+    1. when a bug was introduced by an incorrect change
+___
+## Making changes
+
+1. If you edit `foo.c` you can
+    ```sh
+    $ git commit -m"fix a bug" foo.c
+    ```
+    and your source code change is committed to the "local repo"
+
+___
+## Checking for uncommitted changes
+
+1. You can get a list of uncommitted changes using
+    ```sh
+    $ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    nothing to commit, working tree clean
+    ```
+___
+## Distributed version control
+
+1. Your local repo can be synchronized with a "remote repo"
+
+1. To sync changes in your local repo to the remote
+    ```sh
+    $ git push
+    ```
+
+1. To sync changes from a remote repo to your local repo
+    ```sh
+    $ git pull
+    ```
+___
+## Github
+
+1. We will use [github.com](https://github.com) to submit assignments for grading
+
+1. Set up authentication to github using your public key
+
+1. Be careful to commit and push your changes to get credit for your work
+
+1. Teams of programmers collaborate on projects this way
+
+---
+# Editors
+
+1. I strongly suggest you use an editor with syntax highlighting
+
+1. vi/vim are terminal-mode editors available on all Linux environments
+
+1. The [micro editor](https://micro-editor.github.io/) is also available, and 
+uses more familiar keyboard shortcuts</script>
+        </section>
+
+    </div>
+</div>
+<script src="/assets/dist/reveal.js"></script>
+<script src="/assets/plugin/markdown/markdown.js"></script>
+<script src="/assets/plugin/highlight/highlight.js"></script>
+<script src="/assets/plugin/search/search.js"></script>
+<script src="/assets/plugin/zoom/zoom.js"></script>
+<script src="/assets/plugin/notes/notes.js"></script>
+<script src="/assets/plugin/math/math.js"></script>
+<script>
+  // https://revealjs.com/config/
+
+  Reveal.initialize({
+    // Display presentation control arrows
+    controls: true,
+
+    // Determines where controls appear, "edges" or "bottom-right"
+    controlsLayout: 'bottom-right',
+
+    // Visibility rule for backwards navigation arrows; "faded", "hidden"
+    // or "visible"
+    controlsBackArrows: 'faded',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Vertical centering of slides
+    center: true,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Enables touch navigation on devices with touch input
+    touch: true,
+
+    // Add the current slide number to the URL hash so that reloading the
+    // page/copying the URL will return you to the same slide
+    hash: true,
+
+    // Push each slide change to the browser history.  Implies `hash: true`
+    history: false,
+
+    transition: 'slide',
+
+    // Display the page number of the current slide
+    // - true:    Show slide number
+    // - false:   Hide slide number
+    //
+    // Can optionally be set as a string that specifies the number formatting:
+    // - "h.v":   Horizontal . vertical slide number (default)
+    // - "h/v":   Horizontal / vertical slide number
+    // - "c":   Flattened slide number
+    // - "c/t":   Flattened slide number / total slides
+    //
+    // Alternatively, you can provide a function that returns the slide
+    // number for the current slide. The function should take in a slide
+    // object and return an array with one string [slideNumber] or
+    // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+    slideNumber:  'c' ,
+
+
+    // Can be used to limit the contexts in which the slide number appears
+    // - "all":      Always show the slide number
+    // - "print":    Only when printing to PDF
+    // - "speaker":  Only in the speaker view
+    showSlideNumber: 'all',
+
+    // https://revealjs.com/plugins/#built-in-plugins
+    plugins: [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealSearch,
+      RevealZoom,
+      RevealNotes,
+      RevealMath
+    ]
+  });
+</script>
+
+</body>
+</html>
