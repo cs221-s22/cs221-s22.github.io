@@ -5,20 +5,29 @@ permalink: /syllabus/
 ---
 
 ## Learning Objectives
-Our objectives are to learn:
+Upon completion of this course the students will have learned the following topics:
 1. How to develop and debug software in the Linux
-command line environment
-1. How to develop software in the C language
-1. How to handle files and network connections
-1. How to represent numbers in binary and hexadecimal
-1. How data is represented in memory, including C pointers
-1. How to write memory-safe and secure code in C
+command line environment (lab01 and ongoing)
+1. How to develop software in the C language (all projects)
+1. How to handle files and network connections (project01, project03)
+1. How to represent numbers in binary and hexadecimal (project04)
+1. How data is represented in memory, including C pointers (project02, project04)
+1. How to write memory-safe and secure code in C (project02, project04)
 
-## Assessments
-1. Fill these in
+## Assessments 
+1. Projects are the main assessment tool for the course. The project corresponding to each learning outcome is shown in parentheses above.
+1. Projects will be graded for both correctness (using an automated tool) and comprehension (using 1:1 interactive grading meetings with the instructor or TA)
+1. Low-stakes labs will build into each project
+1. The final exam will be comprehensive over the semester's work
+
+## Grading Breakdown
+1. Class participation: 10% 
+1. Labs: 10%
+1. Projects: 60%
+1. Final Exam: 20%
 
 ## Course Policies
-1. Class Participation counts, including attendance, asking questions and answering my questions, office hours, and Piazza
+1. Class Participation counts, including attendance, asking questions and answering my questions, office hours, and CampusWire
 1. Neatness counts; we will discuss how to write readable and maintainable code
 1. Original Work
     1. You may get explanatory help from the instructor, TAs, friends, tutors, or Internet sites
@@ -26,9 +35,8 @@ command line environment
     1. You must not provide your original work to other students
     1. No credit will be given for work which violates this policy
 1. Deadlines
-    1. **Labs** will not be accepted after the deadline
-    1. If you are not done with a **project** by the deadline, you should turn in what you have working to get full credit for that work
-    1. Project corrections may be turned in for 50% credit, up to one week after grades are posted
+    1. If you are not done with an assignment by the deadline, you should turn in what you have working to get full credit for that work
+    1. Late work may be turned in for 50% credit, up to one week after grades are posted
     1. Extensions for full credit are not given except in extenuating circumstances, which you must discuss with the instructor in advance
 1. Letter Grades are assigned according to the following table, without rounding or curving
 
