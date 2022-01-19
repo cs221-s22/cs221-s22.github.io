@@ -31,7 +31,7 @@ layout: default
         <td>
           {%- if row.slides -%}
             {%- for deck in row.slides %}
-              <a href="{{ deck }}" target="_new">slides</a>
+              <a href="{{ deck.url }}" target="_new">{{ deck.title }}, </a>
             {%- endfor %}
           {%-endif %}
           {%- if row.notes1 %}

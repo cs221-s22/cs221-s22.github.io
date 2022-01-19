@@ -1,7 +1,8 @@
 ---
 layout: post
-topics: Course introduction
+topics: "
+    [Introduction](slides/intro.html), 
+    [C for Python programmers](slides/python.html)
+"
 date:   2022-01-25 08:00:00 -0800
-slides: [slides/intro.html, slides/python.html]
 ---
-
