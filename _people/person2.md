@@ -1,6 +1,6 @@
 ---
-name: "Alma Abbasi"
+name: "Cara Ingram"
 role: "Teaching Assistant"
-email: "sabbasi3@dons.usfca.edu"
+email: "cingram@dons.usfca.edu"
 office_hours: "TBD in CS Labs"
 ---
