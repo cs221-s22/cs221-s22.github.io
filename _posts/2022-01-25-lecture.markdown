@@ -2,7 +2,7 @@
 layout: post
 topics: "
     [Introduction](slides/intro.html), 
-    [C for Python programmers](slides/python.html)
+    [C for Python programmers](slides/python.html) [lab01](assignments/lab01.html)
 "
 date:   2022-01-25 08:00:00 -0800
 ---
