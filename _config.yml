@@ -25,6 +25,7 @@ baseurl: ""  # the subpath of your site, e.g. /blog
 favicon: favicon.ico  # Icon displayed in the tab
 due_date_format: "%a, %b %-d, %Y at %I:%M %p" # Thu, Jan 27, 2022 at 11:59 PM
 future: true  # render posts with a date in the future
+include: [CNAME] # force the custom subdomain name to be included in the build
 
 # Build settings
 remote_theme: jekyll/minima@7a326eb
