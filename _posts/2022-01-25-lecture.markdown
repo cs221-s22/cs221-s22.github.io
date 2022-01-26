@@ -2,7 +2,11 @@
 layout: post
 topics: "
     [Introduction](slides/intro.html), 
-    [C for Python programmers](slides/python.html) [lab01](assignments/lab01.html)
+    [C for Python programmers](slides/python.html) Assigned [lab01](assignments/lab01.html)
 "
 date:   2022-01-25 08:00:00 -0800
+video1: https://usfca.zoom.us/rec/share/HGqxbzNhXtWJ1NTJLGnqoxSkw0UjaEiLVu79LIC6YnRTMFzDOw-6bKmYIy3uIlzF.VjYH_DDunzibyHEa
+video2: https://usfca.zoom.us/rec/share/CfiCdqxErta7ABsYjWVrs59tpJUObKoZANd6H1N1OgKFliSkG1obz9xiTmm__dM0.u0FEsEELenGF9KJj
+notes1: https://drive.google.com/file/d/1MFRRIBzsx5X801d37pQ8aWgfYikAZixO/view?usp=sharing
+notes2: https://drive.google.com/file/d/1aLdtF5ife42pjLw_Kpvpr5kU1nMh2wck/view?usp=sharing
 ---
