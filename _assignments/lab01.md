@@ -37,9 +37,9 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     - These are just text files and you can `cat` them to see their contents
     - `id_ed25519` is your private key. You should never upload that file to any servers, or give it to anyone. 
     - `id_ed25519.pub` is your public key. This file can be uploaded to stargate and Github.com
-1. Configure your laptop so your private key can be used to authenticate you on github.com
+1. Configure stargate so your private key can be used to authenticate you on github.com
     ```sh
-    me@mylaptop:~/.ssh $ cat >config
+    username@stargate:~/.ssh $ cat >config
     Host *
       ForwardAgent yes
     ^D
@@ -84,11 +84,11 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 ## Copy your public key to stargate
 1. From your terminal app
     ```sh
-    me@mylaptop:~ $ ssh-copy-id username@stargate.cs.usfca.edu
+    me@mylaptop:~/.ssh $ ssh-copy-id username@stargate.cs.usfca.edu
     ```
 1. Test your ssh access to stargate
     ```sh
-    me@mylaptop:~ $ ssh username@stargate.cs.usfca.edu
+    me@mylaptop:~/.ssh $ ssh username@stargate.cs.usfca.edu
     ...
     username@stargate:~ $
     ```
@@ -113,7 +113,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 ## Finally, some code
 1. Clone the assignment repository ("repo") into your home directory
     ```sh
-    username@vlab01:~ $ git clone git@github.com:/cs221-s11/lab01-yourgithubid
+    username@vlab01:~ $ git clone git@github.com:/cs221-s22/lab01-yourgithubid
     username@vlab01:~ cd lab01-yourgithubid
     ```
 1. Compile the program
