@@ -59,6 +59,28 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     Connection to github.com closed.
     ```
 
+## Set up ~/.ssh/config on your laptop
+1. From your terminal app (you can use any editor, not just `nano`)
+    ```sh
+    me@mylaptop:~ $ cd .ssh
+    me@mylaptop:~ $ nano config
+    ```
+    make your config file look like the snippet below. Notes:
+    1. `UseKeychain` is macOS-only so Windows users can omit it
+    2. Remember to replace `your_usf_login` with your USF login (e.g. phpeterson)
+    ```
+    Host github.com
+      HostName github.com
+      AddKeysToAgent yes
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_ed25519
+    Host stargate.cs.usfca.edu
+      ForwardAgent yes
+      User your_usf_login
+      AddKeysToAgent yes
+      IdentityFile ~/.ssh/id_ed25519
+    ```
+
 ## Copy your public key to stargate
 1. From your terminal app
     ```sh
