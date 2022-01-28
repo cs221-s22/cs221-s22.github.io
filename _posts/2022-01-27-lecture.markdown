@@ -3,7 +3,7 @@ layout: post
 topics: "
     
 "
-date:   2022-01-25 08:00:00 -0800
+date:   2022-01-27 08:00:00 -0800
 video1: https://usfca.zoom.us/rec/share/2Su9xO6uP5DM4_CafAJ-9iIQR1LSRNqqG-GF9ZGhhI3OJFrUxx6DQqqY7TTp2kM8.5gU9atELyl7FGqVZ
 video2: https://usfca.zoom.us/rec/share/O-FmS3IwjkxeNPq-JH2T6N_7dhUz_Yxe_ap0qaSvuRlpXkPI3umw18TbMCuWRZN6.a6CuZWGl1L6fM3vw
 notes2: https://drive.google.com/file/d/1EsQYMhVgeIbBnkMzHBaMlxJ9w_DYEvu_/view?usp=sharing
