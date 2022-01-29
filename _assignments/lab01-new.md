@@ -8,7 +8,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 
 ## Step 1: Choose a terminal app for your laptop
 - Mac users: I prefer [iTerm2](https://iterm2.com/) but Apple's Terminal.app would work
-- Windows users: I prefer [Git Bash](https://git-scm.com/downloads) but Microsoft's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) would work. I don't recommend Windows Terminal.
+- Windows users: I prefer [Git Bash](https://git-scm.com/downloads) but Microsoft's [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) would work. I don't recommend Windows Terminal unless you are already an expert with it.
 
 ## Step 2: Test your SSH access to stargate
 1. Open your terminal app on your laptop. You should see
@@ -24,6 +24,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     ```
     1. At the password prompt, type your USF student ID (CWID)
     1. Your CWID will not be shown (in case someone was watching over your shoulder) but just type it followed by the Return key
+    1. Be careful not to type the wrong student ID three times. If you do, your account will be locked until unlocked by the [CS Support team](mailto:support@cs.usfca.edu)
 1. You should see
     ```
     The authenticity of host 'remote-host' can't be established...
@@ -43,6 +44,8 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     1. Control-O (oh not zero) to Write Out, and type the return key
     1. Control-X to Exit the nano editor
 1. Type Control-D or `exit` to get off `stargate` and back onto your laptop
+1. Control key combinations are abbreviated using the caret, e.g. `^O` and `^X`
+
 
 ## Step 3: Create SSH keys
 1. Type
@@ -87,8 +90,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
       AddKeysToAgent yes
       IdentityFile ~/.ssh/id_ed25519
     ```
-1. Type Control-O (oh, not zero) and return to Write Out the config file
-1. Type Control-X to exit the nano editor
+1. Write Out (`^O, return`) and Exit (`^X`) from the `nano` editor
 
 
 ## Step 5: Put your public key on github.com
@@ -124,7 +126,36 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 1. Mac users: `ssh-agent`is provided by the OS. Skip to the next step
 1. Windows Git Bash Users: We will run `ssh-agent` from your shell, so that ssh authentication requests can be served by your laptop. 
     ```sh
-    your_name@laptop_name:~/.ssh $ 
+    your_name@laptop_name:~/.ssh $ cd ~
+    your_name@laptop_name:~ $ nano .bashrc
+    ```
+    copy and paste the text below into your `.bashrc`
+    ```sh
+    env=~/.ssh/agent.env
+
+    agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+    agent_start () {
+        (umask 077; ssh-agent >| "$env")
+        . "$env" >| /dev/null ; }
+
+    agent_load_env
+
+    # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
+    agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+    if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+        agent_start
+        ssh-add
+    elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+        ssh-add
+    fi
+
+    unset env
+    ```
+    Write Out (`^O, return`) and Exit (`^X`) from the `nano` editor, and reload `.bashrc` like this
+    ```sh
+    your_name@laptop_name:~ $ source .bashrc
     ```
 
 ## Step 8: ssh to stargate
