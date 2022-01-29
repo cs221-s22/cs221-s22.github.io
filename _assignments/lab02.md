@@ -3,7 +3,7 @@ layout: assignment
 due: 2022-02-07 23:59:59 -0800
 permalink: assignments/lab02.html
 title: Lab02 - Strings
-github_url: https://www.cs.usfca.edu
+github_url: https://classroom.github.com/a/Ran8PjX1
 ---
 ## Requirements
 1. You will develop the C code and a `Makefile` which builds one executable
@@ -29,7 +29,7 @@ invalid arguments
 ```
 
 ## Part 2
-Count the occurrences of a two-character string in another string. Example output:
+Count the occurrences of an N-character string in another string. Example output:
 ```sh
 $ ./lab02 abbabb bb
 2

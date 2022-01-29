@@ -1,0 +1,4 @@
+---
+layout: post
+topics: C pointers, strings, assigned [lab02](assignments/lab02.html) due Mon 2/7
+---
