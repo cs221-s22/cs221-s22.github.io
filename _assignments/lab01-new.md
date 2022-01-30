@@ -129,7 +129,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
     your_name@laptop_name:~/.ssh $ cd ~
     your_name@laptop_name:~ $ nano .bashrc
     ```
-    copy and paste the text below into your `.bashrc`
+    copy and paste the text below ([source](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)) into your `.bashrc`
     ```sh
     env=~/.ssh/agent.env
 
