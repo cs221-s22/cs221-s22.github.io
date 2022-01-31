@@ -97,7 +97,7 @@ github_url: https://classroom.github.com/a/hd8gWiyP
 1. Copy your public key to your laptop's clipboard:
     - Mac users: `your_name@laptop_name:~/.ssh $ cat id_ed25519.pub | pbcopy`
     - Windows users: 
-        - Open Notepad, File > Open, navigate to c:\Users\your_name\.ssh
+        - Open Notepad, File > Open, navigate to c:\Users\your_name\\.ssh
         - Open your public key (`id_ed25519.pub` or `id_rsa.pub`)
         - Select All, and Copy it to the clipboard
 1. Create an account on [github.com](https://github.com/) if you don't already have one.

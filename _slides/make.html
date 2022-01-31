@@ -96,3 +96,7 @@ clean:
 ```
 
 You should never commit build products to the repo<!-- .element: class="fragment" -->
+---
+## Be Careful
+1. Recipes must be indented by a tab character, not spaces
+1. Never put a .c file in `OBJS` since it will be deleted by `make clean`
