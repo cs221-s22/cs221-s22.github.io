@@ -30,7 +30,7 @@ gcc -g -o lab01 lab01.c
 If `lab01` has a newer file mod date than `lab01.c`
 ```sh
 $ make
-make: 'lab02' is up to date.
+make: 'lab01' is up to date.
 ```
 ---
 A `Makefile` can have multiple targets
@@ -63,7 +63,7 @@ Better, but still some repetitive code <!-- .element: class="fragment" -->
 ---
 `Makefiles` can have pattern rules
 
-```sh
+```make
 OBJS = foo.o bar.o
 PROG = foobar
 
@@ -81,7 +81,7 @@ $(PROG): $(OBJS)
 This scales to a large number of dependencies<!-- .element: class="fragment" -->
 ---
 A `Makefile` should include a `clean` target
-```sh
+```make
 OBJS = foo.o bar.o
 PROG = foobar
 
