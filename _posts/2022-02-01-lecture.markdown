@@ -3,7 +3,7 @@ layout: post
 topics: "
     C pointers, strings, assigned [lab02](assignments/lab02.html) due Mon 2/7, 
     [make](slides/make.html), [autograder](slides/autograder.html)"
-date:   2022-01-27 08:00:00 -0800
+date:   2022-02-1 08:00:00 -0800
 video1: https://usfca.zoom.us/rec/share/iLZuHnebE9H46E7hP7eSTPTb1NUX0KHiBZ5P2eangEjLk_yRlEk6vCvBWXPpjVOP.4fBdFaHYeIvkbp1k
 video2: https://usfca.zoom.us/rec/share/y6o17uP_-zzStMuCVUwyKWgRwp3t3r3vsnN197V8epqJmy_q_lzcLZ0RFIx_PeIp.oJlxeR5cWrgdt4xt
 notes1: https://drive.google.com/file/d/1WvejYPos7aLrp1VehWUZZUkm2nawDKUG/view?usp=sharing
