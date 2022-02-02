@@ -36,8 +36,10 @@ $ ./lab02 abbabb bb
 $ ./lab02 abbabb bc
 0
 ```
+You may use the C library function `strstr()` if you wish. `char *strstr(char *a, char *b)` returns a pointer to the first occurrence of `b` if `b` occurs in `a`, or `NULL` if `b` does not occur in `a`
 
 ## Rubric
 1. 80 pts: credible effort at source code and `Makefile`
-2. 90 pts: passes Part 1 test cases
+1. 90 pts: passes Part 1 test cases
 1. 100 pts: passes Part 1 and Part 2 test cases
+1. 101 pts: provide your own **original** implementation of `strstr()`
