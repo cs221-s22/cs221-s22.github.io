@@ -1,7 +1,7 @@
 ---
 layout: post
 topics: "
-    C pointers, strings, assigned [lab02](assignments/lab02.html) due Mon 2/7, 
+        C pointers, strings, assigned [lab02](assignments/lab02.html) due Mon 2/7, 
     [make](slides/make.html), [autograder](slides/autograder.html)"
 date:   2022-02-1 08:00:00 -0800
 video1: https://usfca.zoom.us/rec/share/iLZuHnebE9H46E7hP7eSTPTb1NUX0KHiBZ5P2eangEjLk_yRlEk6vCvBWXPpjVOP.4fBdFaHYeIvkbp1k
