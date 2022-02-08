@@ -6,6 +6,10 @@ title: Project01 - Password Checker
 github_url: https://classroom.github.com/a/2oTumoIU
 ---
 
+## Background
+
+Passwords are a fundamental part of computer security. In this assignment, we will explore some common ways to attack passwords, and techniques for measuring the randomness (entropy) of a password.
+
 ## Requirements
 
 1. You will develop a C program which checks a given password (at most 64 characters) against a list of common passwords:
@@ -13,6 +17,7 @@ github_url: https://classroom.github.com/a/2oTumoIU
     1. Is the password one of those passwords, after substituting common "l33t speak" transformations like 'e' to '3'
     1. Is the password one of those passwords, including a '1' at the end?
 1. Your program will calculate the number of bits of entropy for the given password, using the algorithm given below.
+1. Your program will be built by a `Makefile` you provide.
 
 ## Given
 
@@ -37,6 +42,7 @@ github_url: https://classroom.github.com/a/2oTumoIU
 1. In order to use the C `log()` function, you'll need to `#include <math.h>` and link the executable with `gcc -lm`
 
 ## Example Output
+
 ```sh
 phpeterson@vlab00:project01 $ ./project01 foobar
 10k: match
@@ -56,7 +62,9 @@ l33t: no match
 plus1: no match
 bits of entropy: 140
 ```
+
 ## Rubric
+
 1. 50 pts: passes 10k tests
 1. 10 pts: passes 10k-l33t tests
 1. 10 pts: passes 10k-plus1 tests
