@@ -16,7 +16,7 @@ others have the same question
 ### Drop-In Office Hours
 
 {% for person in site.people -%}
-| [{{person.name}}](mailto:{{person.email}}) ({{person.role}}) | {{person.office_hours}}) |
+| [{{person.name}}](mailto:{{person.email}}) ({{person.role}}) | {{person.office_hours}} |
 {% endfor %}
 
 If our regular office hours don't match your schedule, please contact us on CampusWire to make an appointment at a mutually available time.
