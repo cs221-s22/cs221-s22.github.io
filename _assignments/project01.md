@@ -44,22 +44,19 @@ Passwords are a fundamental part of computer security. In this assignment, we wi
 ## Example Output
 
 ```sh
-phpeterson@vlab00:project01 $ ./project01 foobar
+phpeterson@vlab00:project01 $ ./project01 10k foobar
 10k: match
-l33t: match
-plus1: no match
-bits of entropy: 28
 
-phpeterson@vlab00:project01 $ ./project01 y@nk33s
+phpeterson@vlab00:project01 $ ./project01 10k foobaz
 10k: no match
-l33t: match
-plus1: no match
-bits of entropy: 42
 
-phpeterson@vlab00:project01 $ ./project01 "purple cow stapler mouse"
-10k: no match
-l33t: no match
-plus1: no match
+phpeterson@vlab00:project01 $ ./project01 l33t y@nk33s
+l33t: match
+
+phpeterson@vlab00:project01 $ ./project01 plus1 yankees1
+plus1: match
+
+phpeterson@vlab00:project01 $ ./project01 entropy "purple cow stapler mouse"
 bits of entropy: 140
 ```
 
