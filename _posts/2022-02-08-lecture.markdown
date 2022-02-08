@@ -1,5 +1,9 @@
 ---
 layout: post
-topics: "Password security"
+topics: "
+    Lab02 review, 
+    [password security](slides/passwords.html),
+    assigned [project01](assignments/project01.html) due 2/14
+"
 date:   2022-02-08 08:00:00 -0800
 ---
