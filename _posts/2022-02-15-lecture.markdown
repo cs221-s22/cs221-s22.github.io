@@ -1,0 +1,7 @@
+---
+layout: post
+topics: "
+    Files, error handling, assigned [lab03](assignments/lab03.html) due 2/21
+"
+date:   2022-02-15 08:00:00 -0800
+---
