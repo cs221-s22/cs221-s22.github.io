@@ -4,4 +4,5 @@ topics: "
     Files, error handling, assigned [lab03](assignments/lab03.html) due 2/21
 "
 date:   2022-02-15 08:00:00 -0800
+video1: https://usfca.zoom.us/rec/share/0H6GvLImN3Vit4mTsvIgW8glHCRVN-kzWKjeTjuIYKlELpQxlNwUTSOLsSixp1st.iMEQJxDY7Vo6O_Mw
 ---
