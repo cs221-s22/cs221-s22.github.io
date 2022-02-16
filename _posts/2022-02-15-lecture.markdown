@@ -6,4 +6,8 @@ topics: "
 date:   2022-02-15 08:00:00 -0800
 video1: https://usfca.zoom.us/rec/share/0H6GvLImN3Vit4mTsvIgW8glHCRVN-kzWKjeTjuIYKlELpQxlNwUTSOLsSixp1st.iMEQJxDY7Vo6O_Mw
 video2: https://usfca.zoom.us/rec/share/TOSQRprBhcWWEAfjG1soB-6yCiPPCP0-BP_toS3Fu34JfLzquIhq2hsR5ef-gxRJ.9XnEpDRw66H9nBoX
+notes1: https://drive.google.com/file/d/14XsrNqHTk-PUa7GTabhJ-uN5s8e8-YYi/view?usp=sharing
+notes2: https://drive.google.com/file/d/1FgcbRBi51XSfT19WgEAR6VsdX-E0Pbof/view?usp=sharing
+code1: https://github.com/cs221-s22/inclass/tree/main/week04/section01
+code2: https://github.com/cs221-s22/inclass/tree/main/week04/section02
 ---
