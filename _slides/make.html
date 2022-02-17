@@ -36,12 +36,12 @@ make: 'lab01' is up to date.
 A `Makefile` can have multiple targets
 
 ```sh
+foobar: foo.o bar.o
+    gcc -g -o foobar foo.o bar.o
 foo.o: foo.c
     gcc -c -g -o foo.o foo.c
 bar.o: bar.c
     gcc -c -g -o bar.o bar.c
-foobar: foo.o bar.o
-    gcc -g -o foobar foo.o bar.o
 ```
 
 Works, but hard to read and maintain <!-- .element: class="fragment" -->

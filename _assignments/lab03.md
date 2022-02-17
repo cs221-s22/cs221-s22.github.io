@@ -12,12 +12,12 @@ In C, it's very important to be careful when allocating memory, copying data bet
 
 ## Requirements
 
-1. You will build a C program which 
+1. You will build a C program named `lab03` which 
     1. takes a filename and the name and quantity of a product for stock-keeping
     1. writes a comma-separated list of the data out to the file.
 1. Each product will have a name (at most 15 chars and a NUL) and quantity (an integer), and you will keep those in one or more C `struct`. It's possible to generate the output without structures but please learn to use structures
 1. You will use the C file management functions to open, write, and close the CSV file
-1. You will handle error conditions as shown in the example output
+1. You will handle error conditions **exactly** as shown in the example output
 1. You will provide a `Makefile` and test your project with the `grade` script
 
 ## Given
