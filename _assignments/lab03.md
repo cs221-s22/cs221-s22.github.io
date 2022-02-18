@@ -1,6 +1,6 @@
 ---
 layout: assignment
-due: 2022-02-21 23:59:59 -0800
+due: 2022-02-22 23:59:59 -0800
 permalink: assignments/lab03.html
 title: Lab03 - Files, error handling
 github_url: https://classroom.github.com/a/o0Qvqtpo
