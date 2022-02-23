@@ -11,12 +11,13 @@ github_url: https://classroom.github.com/a/qhcRRHMu
 1. Your program will:
     1. Read a CSV file given on the command line
     1. Build a linked list of inventory structures
-    1. Sort the list of inventory structures **ascending by the aisle** in the store where the item may be found
+    1. Sort the list of inventory structures **ascending by the aisle** in the store where the item may be found.
+    1. You may sort the list as you insert items, or use Insertion Sort after the list is built. You must not use C `qsort()`
     1. Output the sorted list **exactly** as shown below.
 1. You must scan the characters yourself, without using `strtok()`
 
 ## Given
-1. We will demonstrate linked lists and discuss sorting strategies.
+1. We will demonstrate linked lists and discuss Insertion Sort.
 
 ## Example Output
 ```sh
