@@ -47,7 +47,7 @@ screws: quantity: 6, aisle: 7, bin: 8
 ```
 
 ## Rubric
-1. Project02 will be graded in a 15-minute interactive grading meeting. Please sign up on this spreadsheet. 
+1. Project02 will be graded in a 15-minute interactive grading meeting. Please sign up on [this spreadsheet](https://docs.google.com/spreadsheets/d/1XdCibcfxB9hid7YGoLIG2n4C02eMht6D-xx9r2LZ4vU/edit#gid=0). 
 1. 80 pts: correctness demonstrated by the `grade` script
 1. 10 pts: Show the grader examples of defensive coding practice, such as:
     1. Checking for memory and I/O errors
