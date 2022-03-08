@@ -3,4 +3,6 @@ layout: post
 topics: "Recursion, [Minimax](slides/minimax.html). Assigned [project03](assignments/project03.html) due 3/22
 "
 date:   2022-03-08 08:00:00 -0800
+video1: https://usfca.zoom.us/rec/share/9nP32BE5B8j6zRe1Sd7yo7SUskk9aDAKOCLIFEkGfn_RabndpEr3bvlF5pmuQ6BG.lf29u-Jfteo4SfAi
+notes1: https://drive.google.com/file/d/1aPjEVwSDbgdH3ZVGLZ321Oleq1HPFoyc/view?usp=sharing
 ---
