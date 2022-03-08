@@ -1,0 +1,86 @@
+---
+layout: raw
+---
+# Game Theory
+
+# minimax
+---
+## Problem Domain
+1. Minimax is an algorithm for programming games which:
+    - Have turn-by-turn game play of two players
+    - Have a winner and a loser ("zero sum")
+    - Utilize pieces on a board, like Tic-Tac-Toe, Checkers, Go, Mancala, etc.
+---
+## Why "minimax"?
+1. Every possible move is assigned a point value
+1. In a zero-sum game, what's good for player 1 is bad for player 2, and vice versa
+1. When it's the maximizer's turn, minimax chooses the move with the highest value
+1. When it's the minimizer's turn, minimax chooses the move with the lowest value
+---
+## How does it work?
+1. Minimax plays out all possible game moves
+    - until win, lose, or draw ("terminal state")
+1. The maximizer and the minimizer each play their best possible move
+1. Properly implemented, minimax is difficult to beat
+    - Games should end in a draw
+    - Minimax is not probabilistic, like games of chance
+---
+## Pseudocode
+```
+function minimax(node, depth, maximizingPlayer) is
+    if depth = 0 or node is a terminal node then
+        return the heuristic value of node
+    if maximizingPlayer then
+        value := −∞
+        for each child of node do
+            value := max(value, minimax(child, depth − 1, FALSE))
+        return value
+    else (* minimizing player *)
+        value := +∞
+        for each child of node do
+            value := min(value, minimax(child, depth − 1, TRUE))
+        return value
+```
+1. Source: [Wikipedia](https://en.wikipedia.org/wiki/Minimax#Pseudocode)
+2. Tip: use your lab04 code to calculate "terminal" conditions like win, lose, draw.
+---
+## C tips 1
+1. This is a classic problem, so implementations are available. You must write your own code
+---
+## C tips 2
+C doesn't have "infinity" , but you can use C's `INT_MAX` and `INT_MIN` macros
+```c
+#include < limits.h>
+#include < sys/param.h>
+...
+int n = MAX(INT_MAX, min);
+int m = MIN(INT_MIN, max);
+/* #define MIN(a,b) (((a)<(b))?(a):(b)) */
+```
+---
+## C tips 3a
+You can return a `struct` by value
+```c
+typedef struct _move {
+    int row;
+    int col;
+} move; 
+move find_best_move() {
+    move m = {0, 0};
+    ...
+    return m;
+}
+```
+---
+## C tips 3b
+or pass a pointer to a `struct` if you prefer
+```c
+typedef struct _move {
+    int row;
+    int col;
+} move; 
+void find_best_move(move *pmove) {
+    pmove->row = 0;
+    pmove->col = 0;
+}
+```
