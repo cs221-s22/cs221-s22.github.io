@@ -5,4 +5,8 @@ topics: "Recursion, [Minimax](slides/minimax.html). Assigned [project03](assignm
 date:   2022-03-08 08:00:00 -0800
 video1: https://usfca.zoom.us/rec/share/9nP32BE5B8j6zRe1Sd7yo7SUskk9aDAKOCLIFEkGfn_RabndpEr3bvlF5pmuQ6BG.lf29u-Jfteo4SfAi
 notes1: https://drive.google.com/file/d/1aPjEVwSDbgdH3ZVGLZ321Oleq1HPFoyc/view?usp=sharing
+video2: https://usfca.zoom.us/rec/share/EQFCJq3VOwxtBQrLEYUUCnXZrsOoyfRgcq1O0KkOv2u0UfY0Y48M5BtPFrQsOwGr.jdHEfziU9_95nIT2
+notes2: https://drive.google.com/file/d/1sYBn7VtJDqzsqngQ31_G_QXhi4xGedfG/view?usp=sharing
+code1: https://github.com/cs221-s22/inclass/tree/main/week07/section01/recurse
+code2: https://github.com/cs221-s22/inclass/tree/main/week07/section02/recurse
 ---
