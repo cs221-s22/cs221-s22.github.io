@@ -11,7 +11,7 @@ github_url: https://classroom.github.com/a/niUx-1tu
 1. You will evolve your lab04 solution to support two modes of Tic-Tac-Toe game play:
     1. If `argc > 2` your program will accept board values in `argv[]`, just like lab04, and use Minimax to output the optimal next move for that board.
         - You may assume that it's 'O's turn, and 'X' is the maximizer
-    1. If `argc == 2` your program will use a loop to play a full game, with a human playing 'X' and the computer using Minimax to play 'O'. 
+    1. If `argc == 1` your program will use a loop to play a full game, with a human playing 'X' and the computer using Minimax to play 'O'. 
         - 'X' always goes first
 1. Your program must be called `project03` and must include a `Makefile`
 
