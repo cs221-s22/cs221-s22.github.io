@@ -1,0 +1,61 @@
+---
+layout: raw
+---
+# Networking in C
+---
+## Caution
+- The sockets API is idiomatic C
+- Be careful
+- Check errors
+---
+## Connection Lifecycle
+- Get an IP address (usually by looking up a hostname in DNS)
+- Create a *socket* using the address, protocol, and port number
+- *Bind* the socket to the remote host
+- Loop over open sockets
+    - Write data
+    - Read data on ready sockets
+- Deallocate dynamic resources
+---
+## Lookup a hostname
+
+```c
+#include < netdb.h>
+main() {
+    struct addrinfo hints;
+    hints.ai_family = AF_INET;      // IPv4
+    hints.ai_socktype = SOCK_DGRAM; // datagram socket
+    hints.ai_flags = 0;
+    hints.ai_protocol = 0;          // any protocol
+
+    struct addrinfo *results;       // array, allocated in gai()
+    int e = getaddrinfo("vlab00.cs.usfca.edu", "2221", &hints, 
+        &results);
+    if (e != 0) {
+        printf("getaddrinfo: %s\n", gai_strerror(e));
+        exit(-1);
+    }
+}
+```
+---
+## Find the right addrinfo
+```c
+#include < sys/socket.h>
+struct addrinfo *r;
+int fd;
+for (r = results; r != NULL; r = r->ai_next) {
+    fd = socket(r->ai_family, r->ai_socktype, r->ai_protocol);
+    if (fd == -1)
+        continue;
+    if (connect(fd, r->ai_addr, r->ai_addrlen) != -1)
+        break;                  // success
+    close(fd);
+}
+freeaddrinfo(results);         // dealloc array
+if (r == NULL) {               // no address succeeded
+    printf("Could not connect\n");
+    exit(-1);
+}
+```
+---
+## Bind to the right addrinfo
