@@ -2,4 +2,8 @@
 layout: post
 topics: "Tic-Tac-Toe review, Programming Languages, assigned [lab05](assignments/lab05.html) due 3/29"
 date:   2022-03-22 08:00:00 -0800
+video1: https://usfca.zoom.us/rec/share/0vaOJT9LbW824f55XckjxBGMgW1vc5mLO4EJXdyTuDEy9D61ETavmju6S7-V2ezw.Qe2gB8zpZQP7vE9I
+video2: https://usfca.zoom.us/rec/share/EYGkiz95Q8KhruURJ8nxX-pRsW7UoLjb2fhT42kG4-4k51TAsscJuRAEYjuTelpa.RqXyYR8q1q-Oy4z_
+notes1: https://drive.google.com/file/d/1tthBneAoC-okc10-nbLoN5QnzqG-y5Zh/view?usp=sharing
+notes2: https://drive.google.com/file/d/1DkIBIp8S58cU82VUAsO6E_bHUYAmQb8_/view?usp=sharing
 ---
