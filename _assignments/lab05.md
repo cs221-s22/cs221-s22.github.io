@@ -87,6 +87,7 @@ enum scan_token_enum {
 struct scan_token_st {
     enum scan_token_enum id;
     char name[SCAN_TOKEN_LEN];
+    struct scan_token_st *next;
 };
 
 struct scan_table_st {
