@@ -11,9 +11,9 @@ layout: default
 	{%- assign date_format = "%b %-d, %Y" %}
 	<table>
     <colgroup>
-      <col span="1" style="width:20%">
-      <col span="1" style="width:50%">
-      <col span="1" style="width:30%">
+      <col span="1" class="date-column">
+      <col span="1" class="topics-column">
+      <col span="1" class="materials-column">
     </colgroup>
     <tr>
       <th>Date</th>
@@ -43,6 +43,7 @@ layout: default
           {%- if row.code1 %}
             <a href="{{ row.code1 }}">code-01</a>
           {%- endif %}
+          <br>
           {%- if row.notes2 %}
             <a href="{{ row.notes2 }}">notes-02</a>
           {%- endif %}
