@@ -15,35 +15,57 @@ layout: raw
 - *Application protocols* are built on top of TCP
 ---
 ## Interfaces
-- Every *interface* (Ethernet port, USB port, or WiFi card/chip) has a physical [MAC address](https://en.wikipedia.org/wiki/MAC_address)
+- Every *interface* (Ethernet port, USB port, or WiFi card/chip) has a **physical** [MAC address](https://en.wikipedia.org/wiki/MAC_address)
 - MAC addresses never change
-- To communicate on a network, an interface must have a logical IP address
-- Network routers map physical MAC addresses to logical IP addresses
+- To communicate on a network, an interface must have a **logical** IP address
+- Network routers map MAC addresses to IP addresses
 ---
 ## What is an IP address?
 - An IPv4 address is a 32-bit number, written as 4 one-byte sequences (*octets*), e.g. `10.0.1.2`
 - IP addresses must be unique on a network
-- System admins may give their computers a *static IP address* if they wish
-- Network routers lease a *dynamic IP address* to an interface using [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol)
+- Network admins may give their computers a *static IP address* or dynamic address assignment
 ---
 ## IP address range
-- 2^32 (about 4.3 billion) addresses is not that big a number
-- Today, IPv4 addresses are rationed and leases can be short
+- 2^32 addresses is not that big a number (about 4.3 billion)
+- Today, public IPv4 addresses are in short supply
 - IPv6 uses 2^128 addresses for a lot more range, e.g. `fe80::5054:ff:fed3:28f0`
-- Within the lab network, we will use only IPv4 addresses
+- Within the lab network, we will use IPv4 addresses
 ---
 ## Loopback Addresses
-- Programs can connect to their own computer (*host*) using the loopback address
-- By convention, the IPv4 loopback is `127.0.0.1` or `localhost` and the IPv6 loopback is `::1`
+- Programs can connect to their own computer (*host*) using the _loopback address_
+- The IPv4 loopback is `127.0.0.1` or `localhost` and the IPv6 loopback is `::1`
+---
+## `ifconfig` demo
 ---
 ## Public vs. Private Addresses
-- By convention, the IPv4 ranges `10.x.y.z` and `192.168.x.y` are *private network addresses*
+- A router on the public Internet has a public address, owned by the Internet Service Provider (ISP)
+- The Internet Assigned Numbers Authority ([IANA](https://www.iana.org/)) allocates three ranges of IPv4 addresses to private networks 
+    - `10.x.y.z`
+    - `192.168.x.y`
+    - `172.16.x.y`
 - IPv6 addresses beginning with `fe80::` are private network addresses
-- Network routers hand out those addresses via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) autoconfiguration
 ---
-`ifconfig` demo
+## pi and `curl ipinfo.io/ip`
+---
+## Routing
+- Routers keep a lookup table of MAC and IP addresses
+- Routers lend IP addresses to clients using *Dynamic Host Configuration* ([DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol))
+- Routers have a *subnet mask* and a range of assignable addresses
+- Routers use *Network Address Translation* ([NAT](https://en.wikipedia.org/wiki/Network_address_translation)) to map private addresses to their address on the outer/public network
+---
+## Subnet Masks 
+- Public IPv4 addresses were originally Class A, Class B, or Class C
+- Class A addresses have 8 bits of subnet mask (`0xFF000000`) 
+- Class B addresses have 16 bits of subnet mask (`0xFFFF0000`)
+- Class C addresses have 24 bits of subnet mask (`0xFFFFFF00`)
+--- 
+## CIDR 
+- *Classless Interdomain Routing* ([CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)) specifies the subnet mask by bits, rather than by bytes
+- `10.0.0.0/8` means 8 bits of subnet mask, and 24 bits of assignable addresses
+- `172.16.0.0/12` means 12 bits of subnet mask, and 20 bits of assignable addresses
 ---
 ## Transport Protocols
+- Two different ways to send *packets* 
 - UDP: Datagrams
 - TCP: Streams (a.k.a. *sessions*)
 - What's the difference?
@@ -54,9 +76,9 @@ layout: raw
 - No error handling or retransmission
 ---
 ## Transmission Control Protocol (TCP)
-- Creates a *session* using sequence numbers
-- Sessions guarantee delivery and order
-- Handles errors and retransmission
+- Creates a *stream* of packets using sequence numbers
+- TCP guarantees delivery and order
+- TCP handles errors and retransmission
 ---
 ## Application Protocols
 - DNS maps *host/domain names* to IP addresses
@@ -65,11 +87,18 @@ layout: raw
 ---
 ## Ports
 - Once we have an address and a protocol, we need a *port*
-- Ports are 16-bit integers (0 - 32,767)
-- Port numbers < 1024 are standardized by the Internet Assigned Numbers Authority ([IANA](https://www.iana.org/))
+- Ports are 16-bit integers (0 - 65,535)
+- Port numbers < 1024 are standardized by IANA, and require elevated privileges to use
 ---
 ## Network Byte Order
 - Different computer architectures store integers in different formats
-- *Big endian* means that `0xAABBCCDD` is stored in memory as `0xAA`, `0xBB`, `0xCC`, `0xDD`
-- *Little endian* means it's stored as `0xDD`, `0xCC`, `0xBB`, `0xAA`
-- By convention, IP networks [transmit](https://en.wikipedia.org/wiki/Endianness#Networking) multi-byte integers in Big Endian format
+- *Big-endian* means that `0xAABBCCDD` is stored in memory as `0xAA`, `0xBB`, `0xCC`, `0xDD`
+- *Little-endian* means it's stored as `0xDD`, `0xCC`, `0xBB`, `0xAA`
+- IP networks [transmit](https://en.wikipedia.org/wiki/Endianness#Networking) multi-byte integers 
+in Big Endian format (*Network Byte Order*)
+---
+## gdb demo
+
+`p/x i`
+
+`x/8x (char*) &i`
