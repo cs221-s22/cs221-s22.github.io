@@ -53,17 +53,6 @@ layout: raw
 - Routers have a *subnet mask* and a range of assignable addresses
 - Routers use *Network Address Translation* ([NAT](https://en.wikipedia.org/wiki/Network_address_translation)) to map private addresses to their address on the outer/public network
 ---
-## Subnet Masks 
-- Public IPv4 addresses were originally Class A, Class B, or Class C
-- Class A addresses have 8 bits of subnet mask (`0xFF000000`) 
-- Class B addresses have 16 bits of subnet mask (`0xFFFF0000`)
-- Class C addresses have 24 bits of subnet mask (`0xFFFFFF00`)
---- 
-## CIDR 
-- *Classless Interdomain Routing* ([CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)) specifies the subnet mask by bits, rather than by bytes
-- `10.0.0.0/8` means 8 bits of subnet mask, and 24 bits of assignable addresses
-- `172.16.0.0/12` means 12 bits of subnet mask, and 20 bits of assignable addresses
----
 ## Transport Protocols
 - Two different ways to send *packets* 
 - UDP: Datagrams

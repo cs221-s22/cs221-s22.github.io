@@ -1,7 +1,7 @@
 ---
 layout: raw
 ---
-# Networking in C
+# Sockets in C
 ---
 ## Caution
 - The sockets API is idiomatic C
@@ -38,7 +38,7 @@ main() {
 }
 ```
 ---
-## Find the right addrinfo
+## Make a socket File Descriptor
 ```c
 #include < sys/socket.h>
 struct addrinfo *r;
@@ -58,4 +58,36 @@ if (r == NULL) {               // no address succeeded
 }
 ```
 ---
-## Bind to the right addrinfo
+## Connect socket and `addrinfo`
+```c
+if (connect(fd, rp->ai_addr, rp->ai_addrlen) != -1)
+    // connected!
+```
+---
+## Write on the connected socket
+```c
+if (write(fd, "hello", 6) == 6)
+    // success!
+```
+---
+## Read on the connected socket
+```c
+char buf[32];
+if (read(fd, buf, 32) != -1)
+    // success!
+```
+---
+## Deallocate resources
+```c
+close(fd);
+freeaddrinfo(results);
+```
+---
+## getaddrinfo, UDP demos
+---
+## Key Concepts
+1. A socket file descriptor is just an `int`
+1. File descriptors can be used with `read()` and `write()` system calls
+1. Clients: lookup, socket, connect, read/write
+1. Servers: socket, bind, recvfrom (UDP)
+1. Check errors. Use `perror()`
