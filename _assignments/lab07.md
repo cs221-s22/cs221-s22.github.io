@@ -40,5 +40,5 @@ Presence: offline: phpeterson on host host: vlab00.cs.usfca.edu
 ## Rubric
 
 1. 70 pts: client broadcasts correctly
-1. 10 pts: server listens correctly
+1. 20 pts: server listens correctly
 1. 10 pts: neatness, including error handling
