@@ -60,8 +60,9 @@ github_url: https://classroom.github.com/a/GQb_harD
 1. You should write a loop which looks roughly like this:
     ```c
     struct pollfd fds[64];
+    int nfds = ...;
     while (!done) {
-        int num_ready = poll(fds, 64, 100);
+        int num_ready = poll(fds, nfds, 100);
         if (num_ready == ...) 
             /* do "server" things */
     }
@@ -93,7 +94,7 @@ github_url: https://classroom.github.com/a/GQb_harD
 1. The socket needs to be non-blocking, which you can set up like this:
     ```c
     int enable = 1;
-    ioctl(fd, FIONBIO, (char*) enable);
+    ioctl(fd, FIONBIO, (char*) &enable);
     ```
 1. You should add the TCP file descriptor to a `pollfd` in your array of `pollfd` so the `poll()` loop can notify you when someone is trying to connect.
 
