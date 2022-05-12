@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Lab01 - Environment Setup | CS 221 - C and Systems Programming</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Lab01 - Environment Setup" />
+<meta name="author" content="Phil Peterson" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Step 1: Choose a terminal app for your laptop Mac users: I prefer iTerm2 but Apple’s Terminal.app would work Windows users: I prefer Git Bash but Microsoft’s Windows Subsystem for Linux would work. I don’t recommend Windows Terminal unless you are already an expert with it." />
+<meta property="og:description" content="Step 1: Choose a terminal app for your laptop Mac users: I prefer iTerm2 but Apple’s Terminal.app would work Windows users: I prefer Git Bash but Microsoft’s Windows Subsystem for Linux would work. I don’t recommend Windows Terminal unless you are already an expert with it." />
+<meta property="og:site_name" content="CS 221 - C and Systems Programming" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-12T23:29:36+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab01 - Environment Setup" />
+<script type="application/ld+json">
+{"description":"Step 1: Choose a terminal app for your laptop Mac users: I prefer iTerm2 but Apple’s Terminal.app would work Windows users: I prefer Git Bash but Microsoft’s Windows Subsystem for Linux would work. I don’t recommend Windows Terminal unless you are already an expert with it.","url":"/assignments/lab01-new.html","@type":"BlogPosting","headline":"Lab01 - Environment Setup","dateModified":"2022-05-12T23:29:36+00:00","datePublished":"2022-05-12T23:29:36+00:00","author":{"@type":"Person","name":"Phil Peterson"},"mainEntityOfPage":{"@type":"WebPage","@id":"/assignments/lab01-new.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CS 221 - C and Systems Programming" /><head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">  
+</head>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 221 - C and Systems Programming</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/help/">Getting Help</a><a class="page-link" href="/syllabus/">Syllabus</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper"><h1 class="page-heading">Lab01 - Environment Setup</h1><div class="container">
+  Due: 
+  <span class="due-date">
+    Mon, Jan 31, 2022 at 11:59 PM 
+  </span>
+  to <a href="https://classroom.github.com/a/hd8gWiyP">Github Classroom Assignment</a>
+  <hr>
+  <section id="main_content">
+    <h2 id="step-1-choose-a-terminal-app-for-your-laptop">Step 1: Choose a terminal app for your laptop</h2>
+<ul>
+  <li>Mac users: I prefer <a href="https://iterm2.com/">iTerm2</a> but Apple’s Terminal.app would work</li>
+  <li>Windows users: I prefer <a href="https://git-scm.com/downloads">Git Bash</a> but Microsoft’s <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a> would work. I don’t recommend Windows Terminal unless you are already an expert with it.</li>
+</ul>
+
+<h2 id="step-2-test-your-ssh-access-to-stargate">Step 2: Test your SSH access to stargate</h2>
+<ol>
+  <li>Open your terminal app on your laptop. You should see
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~ <span class="nv">$ </span>
+</code></pre></div>    </div>
+    <ul>
+      <li>The character <code class="language-plaintext highlighter-rouge">~</code> means that we’re in your home directory</li>
+      <li>Mac users: if you see <code class="language-plaintext highlighter-rouge">%</code> rather than <code class="language-plaintext highlighter-rouge">$</code> that means you’re using the “z shell” or <code class="language-plaintext highlighter-rouge">zsh</code> rather than the <code class="language-plaintext highlighter-rouge">bash</code> shell. Both are ok.</li>
+    </ul>
+  </li>
+  <li>Type
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~ <span class="nv">$ </span>ssh your_usf_login@stargate.cs.usfca.edu
+</code></pre></div>    </div>
+    <ol>
+      <li>At the password prompt, type your USF student ID (CWID)</li>
+      <li>Your CWID will not be shown (in case someone was watching over your shoulder) but just type it followed by the Return key</li>
+      <li>Be careful not to type the wrong student ID three times. If you do, your account will be locked until unlocked by the <a href="mailto:support@cs.usfca.edu">CS Support team</a></li>
+    </ol>
+  </li>
+  <li>You should see
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> The authenticity of host 'remote-host' can't be established...
+ Are you sure you want to continue connecting? (yes/no) yes
+ your_usf_login@stargate $
+</code></pre></div>    </div>
+  </li>
+  <li>Set up ssh forwarding from stargate to your laptop
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@stargate:~ <span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
+ your_usf_login@stargate:~/.ssh <span class="nv">$ </span>nano config
+</code></pre></div>    </div>
+    <p>Now add the text</p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Host <span class="k">*</span>
+   ForwardAgent <span class="nb">yes</span>
+</code></pre></div>    </div>
+    <ol>
+      <li>Control-O (oh not zero) to Write Out, and type the return key</li>
+      <li>Control-X to Exit the nano editor</li>
+    </ol>
+  </li>
+  <li>Type Control-D or <code class="language-plaintext highlighter-rouge">exit</code> to get off <code class="language-plaintext highlighter-rouge">stargate</code> and back onto your laptop</li>
+  <li>Control key combinations are abbreviated using the caret, e.g. <code class="language-plaintext highlighter-rouge">^O</code> and <code class="language-plaintext highlighter-rouge">^X</code></li>
+</ol>
+
+<h2 id="step-3-create-ssh-keys">Step 3: Create SSH keys</h2>
+<ol>
+  <li>Type
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~ <span class="nv">$ </span><span class="nb">cd</span> ~/.ssh
+ your_name@laptop_name:~/.ssh <span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>    </div>
+  </li>
+  <li>If you already have files named <code class="language-plaintext highlighter-rouge">id_ed25519</code> and <code class="language-plaintext highlighter-rouge">id_ed25519.pub</code> (or <code class="language-plaintext highlighter-rouge">id_rsa</code> and <code class="language-plaintext highlighter-rouge">id_rsa.pub</code>) and you know the passphrase to use your private key, then skip to the next step.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">~/.ssh</code> directory is empty then type
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"your_email@example.com"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>When the tool asks you to choose a filename, just hit return to take the default filename</li>
+  <li>When the tool asks you to choose a passphrase for your private key, use a passphrase you will remember</li>
+  <li>Now your <code class="language-plaintext highlighter-rouge">ssh</code> keys should exist in your <code class="language-plaintext highlighter-rouge">~/.ssh</code> directory
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span><span class="nb">ls
+ </span>id_ed25519
+ id_ed25519.pub
+</code></pre></div>    </div>
+    <ul>
+      <li>These are just text files and you can <code class="language-plaintext highlighter-rouge">cat</code> them to see their contents</li>
+      <li><code class="language-plaintext highlighter-rouge">id_ed25519</code> is your private key. You should never upload that file to any servers, or give it to anyone.</li>
+      <li><code class="language-plaintext highlighter-rouge">id_ed25519.pub</code> is your public key. This file can be uploaded to <code class="language-plaintext highlighter-rouge">stargate</code> and <code class="language-plaintext highlighter-rouge">github.com</code></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="step-4-configure-ssh-on-your-laptop">Step 4: Configure ssh on your laptop</h2>
+<ol>
+  <li>From your terminal app, still in <code class="language-plaintext highlighter-rouge">~/.ssh</code>, create the config file using the nano editor
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>nano config
+</code></pre></div>    </div>
+    <p>make your config file look like the snippet below. Notes:</p>
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">UseKeychain</code> is macOS-only so Windows users can omit it</li>
+      <li>Remember to replace <code class="language-plaintext highlighter-rouge">your_usf_login</code> with your USF login (e.g. phpeterson)
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Host github.com
+   HostName github.com
+   AddKeysToAgent yes
+   UseKeychain yes
+   IdentityFile ~/.ssh/id_ed25519
+ Host stargate.cs.usfca.edu
+   ForwardAgent yes
+   User your_usf_login
+   AddKeysToAgent yes
+   IdentityFile ~/.ssh/id_ed25519
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Write Out (<code class="language-plaintext highlighter-rouge">^O, return</code>) and Exit (<code class="language-plaintext highlighter-rouge">^X</code>) from the <code class="language-plaintext highlighter-rouge">nano</code> editor</li>
+</ol>
+
+<h2 id="step-5-put-your-public-key-on-githubcom">Step 5: Put your public key on github.com</h2>
+<ol>
+  <li>Copy your public key to your laptop’s clipboard:
+    <ul>
+      <li>Mac users: <code class="language-plaintext highlighter-rouge">your_name@laptop_name:~/.ssh $ cat id_ed25519.pub | pbcopy</code></li>
+      <li>Windows users:
+        <ul>
+          <li>Open Notepad, File &gt; Open, navigate to c:\Users\your_name\.ssh</li>
+          <li>Open your public key (<code class="language-plaintext highlighter-rouge">id_ed25519.pub</code> or <code class="language-plaintext highlighter-rouge">id_rsa.pub</code>)</li>
+          <li>Select All, and Copy it to the clipboard</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Create an account on <a href="https://github.com/">github.com</a> if you don’t already have one.</li>
+  <li>When logged into <code class="language-plaintext highlighter-rouge">github.com</code> go to Profile &gt; Settings &gt; SSH and GPG Keys, add a new <code class="language-plaintext highlighter-rouge">ssh</code> key, and paste the contents of your public key</li>
+  <li>Test your <code class="language-plaintext highlighter-rouge">ssh</code> access to <code class="language-plaintext highlighter-rouge">github.com</code> from your terminal app
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>ssh git@github.com
+ Hi username! You<span class="s1">'ve successfully authenticated, but GitHub does not provide shell access.
+ Connection to github.com closed.
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-6-put-your-public-key-on-stargate">Step 6: Put your public key on stargate</h2>
+<ol>
+  <li>From your terminal app
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>ssh-copy-id your_usf_login@stargate.cs.usfca.edu
+</code></pre></div>    </div>
+    <p>When it asks for your password, use your USF student ID (CWID)</p>
+  </li>
+  <li>Test your ssh access to stargate
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>ssh username@stargate.cs.usfca.edu
+ ...
+ username@stargate:~ <span class="nv">$ </span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-7-set-up-ssh-agent">Step 7: Set up ssh-agent</h2>
+<ol>
+  <li>Mac users: <code class="language-plaintext highlighter-rouge">ssh-agent</code>is provided by the OS. Skip to the next step</li>
+  <li>Windows Git Bash Users: We will run <code class="language-plaintext highlighter-rouge">ssh-agent</code> from your shell, so that ssh authentication requests can be served by your laptop.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span><span class="nb">cd</span> ~
+ your_name@laptop_name:~ <span class="nv">$ </span>nano .bashrc
+</code></pre></div>    </div>
+    <p>copy and paste the text below (<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows">source</a>) into your <code class="language-plaintext highlighter-rouge">.bashrc</code></p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">env</span><span class="o">=</span>~/.ssh/agent.env
+
+ agent_load_env <span class="o">()</span> <span class="o">{</span> <span class="nb">test</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$env</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">.</span> <span class="s2">"</span><span class="nv">$env</span><span class="s2">"</span> <span class="o">&gt;</span>| /dev/null <span class="p">;</span> <span class="o">}</span>
+
+ agent_start <span class="o">()</span> <span class="o">{</span>
+     <span class="o">(</span><span class="nb">umask </span>077<span class="p">;</span> ssh-agent <span class="o">&gt;</span>| <span class="s2">"</span><span class="nv">$env</span><span class="s2">"</span><span class="o">)</span>
+     <span class="nb">.</span> <span class="s2">"</span><span class="nv">$env</span><span class="s2">"</span> <span class="o">&gt;</span>| /dev/null <span class="p">;</span> <span class="o">}</span>
+
+ agent_load_env
+
+ <span class="c"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running</span>
+ <span class="nv">agent_run_state</span><span class="o">=</span><span class="si">$(</span>ssh-add <span class="nt">-l</span> <span class="o">&gt;</span>| /dev/null 2&gt;&amp;1<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="si">)</span>
+
+ <span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="s2">"</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> 2 <span class="o">]</span><span class="p">;</span> <span class="k">then
+     </span>agent_start
+     ssh-add
+ <span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> 1 <span class="o">]</span><span class="p">;</span> <span class="k">then
+     </span>ssh-add
+ <span class="k">fi
+
+ </span><span class="nb">unset env</span>
+</code></pre></div>    </div>
+    <p>Write Out (<code class="language-plaintext highlighter-rouge">^O, return</code>) and Exit (<code class="language-plaintext highlighter-rouge">^X</code>) from the <code class="language-plaintext highlighter-rouge">nano</code> editor, and reload <code class="language-plaintext highlighter-rouge">.bashrc</code> like this</p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~ <span class="nv">$ </span><span class="nb">source</span> .bashrc
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-8-ssh-to-stargate">Step 8: ssh to stargate</h2>
+<ol>
+  <li>From your terminal app
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_name@laptop_name:~/.ssh <span class="nv">$ </span>ssh your_usf_login@stargate.cs.usfca.edu
+ your_usf_login@stargate:~ <span class="nv">$ </span>
+</code></pre></div>    </div>
+  </li>
+  <li>Test ssh to <code class="language-plaintext highlighter-rouge">github.com</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@stargate:~ <span class="nv">$ </span>ssh git@github.com
+</code></pre></div>    </div>
+  </li>
+  <li>You should see
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Hi username! You<span class="s1">'ve successfully authenticated, but GitHub does not provide shell access.
+ Connection to github.com closed.
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-9-choose-one-of-the-lab-systems-to-work-on">Step 9: Choose one of the lab systems to work on</h2>
+<ol>
+  <li><strong>Do not do class work on the stargate host.</strong> SSH to one of the lab hosts listed by <code class="language-plaintext highlighter-rouge">rusers</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@stargate:~ <span class="nv">$ </span>rusers
+ ...
+ your_usf_login@stargate:~ <span class="nv">$ </span>ssh vlab01
+ your_usf_login@vlab01:~ <span class="nv">$ </span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="step-10-finally-some-code">Step 10: Finally, some code</h2>
+<ol>
+  <li>Clone the assignment repository (“repo”) into your home directory
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@vlab01:~ <span class="nv">$ </span>git clone git@github.com:/cs221-s22/lab01-yourgithubid
+ your_usf_login@vlab01:~ <span class="nb">cd </span>lab01-yourgithubid
+</code></pre></div>    </div>
+  </li>
+  <li>Compile the program
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@vlab01:lab01-yourgithubid <span class="nv">$ </span>gcc <span class="nt">-o</span> hello hello.c
+</code></pre></div>    </div>
+  </li>
+  <li>Run the program
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@vlab01:lab01-yourgithubid <span class="nv">$ </span>./hello
+ hello world
+</code></pre></div>    </div>
+  </li>
+  <li>Edit <code class="language-plaintext highlighter-rouge">hello.c</code> and change <code class="language-plaintext highlighter-rouge">"hello world\n"</code> to <code class="language-plaintext highlighter-rouge">"hello cs221\n"</code> in lower case exactly as shown</li>
+  <li>Save the file and recompile it</li>
+  <li>Commit your changes to the local repo on the lab machine
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@vlab01:lab01-yourgithubid <span class="nv">$ </span>git commit <span class="nt">-m</span><span class="s2">"change world to cs221"</span> hello.c
+</code></pre></div>    </div>
+  </li>
+  <li>Push your changes from the local repo to the remote repo on github.com
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> your_usf_login@vlab01:lab01-yourgithubid <span class="nv">$ </span>git push
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">^D</code> to log out of the lab host, and again to log out of <code class="language-plaintext highlighter-rouge">stargate</code></li>
+</ol>
+
+  </section>
+</div>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>

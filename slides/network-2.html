@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Slides | CS 221 - C and Systems Programming</title>
+    <meta name="description" content="">
+    <meta name="author" content="Phil Peterson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/slides/network-2">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="CS 221 - C and Systems Programming" href="/feed.xml"/>
+
+    <!-- Code highlighting theme used for highlight.js in reveal.js slides -->
+    <link rel="stylesheet" href="/assets/plugin/highlight/classic-like.css">
+
+		<!-- Code highlighting theme used for rouge in jekyll pages
+    <link rel="stylesheet" href="/assets/css/rouge-highlight/github-dark.css">
+    -->
+    <!-- Reveal CSS -->
+    <link rel="stylesheet" href="/assets/dist/reset.css">
+    <link rel="stylesheet" href="/assets/dist/reveal.css">
+    <link rel="stylesheet" href="/assets/dist/theme/dons.css" id="theme">
+
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown
+                 data-separator="^---"
+                 data-separator-vertical="^___"
+                 data-charset="utf-8"
+                 data-notes="^Note:">
+            <script type="text/template"># Sockets in C
+---
+## Caution
+- The sockets API is idiomatic C
+- Be careful
+- Check errors
+---
+## Connection Lifecycle
+- Get an IP address (usually by looking up a hostname in DNS)
+- Create a *socket* using the address, protocol, and port number
+- *Bind* the socket to the remote host
+- Loop over open sockets
+    - Write data
+    - Read data on ready sockets
+- Deallocate dynamic resources
+---
+## Lookup a hostname
+
+```c
+#include < netdb.h>
+main() {
+    struct addrinfo hints;
+    hints.ai_family = AF_INET;      // IPv4
+    hints.ai_socktype = SOCK_DGRAM; // datagram socket
+    hints.ai_flags = 0;
+    hints.ai_protocol = 0;          // any protocol
+
+    struct addrinfo *results;       // array, allocated in gai()
+    int e = getaddrinfo("vlab00.cs.usfca.edu", "2221", &hints, 
+        &results);
+    if (e != 0) {
+        printf("getaddrinfo: %s\n", gai_strerror(e));
+        exit(-1);
+    }
+}
+```
+---
+## Make a socket File Descriptor
+```c
+#include < sys/socket.h>
+struct addrinfo *r;
+int fd;
+for (r = results; r != NULL; r = r->ai_next) {
+    fd = socket(r->ai_family, r->ai_socktype, r->ai_protocol);
+    if (fd == -1)
+        continue;
+    if (connect(fd, r->ai_addr, r->ai_addrlen) != -1)
+        break;                  // success
+    close(fd);
+}
+freeaddrinfo(results);         // dealloc array
+if (r == NULL) {               // no address succeeded
+    printf("Could not connect\n");
+    exit(-1);
+}
+```
+---
+## Connect socket and `addrinfo`
+```c
+if (connect(fd, rp->ai_addr, rp->ai_addrlen) != -1)
+    // connected!
+```
+---
+## Write on the connected socket
+```c
+if (write(fd, "hello", 6) == 6)
+    // success!
+```
+---
+## Read on the connected socket
+```c
+char buf[32];
+if (read(fd, buf, 32) != -1)
+    // success!
+```
+---
+## Deallocate resources
+```c
+close(fd);
+freeaddrinfo(results);
+```
+---
+## getaddrinfo, UDP demos
+---
+## Key Concepts
+1. A socket file descriptor is just an `int`
+1. File descriptors can be used with `read()` and `write()` system calls
+1. Clients: lookup, socket, connect, read/write
+1. Servers: socket, bind, recvfrom (UDP)
+1. Check errors. Use `perror()`
+</script>
+        </section>
+
+    </div>
+</div>
+<script src="/assets/dist/reveal.js"></script>
+<script src="/assets/plugin/markdown/markdown.js"></script>
+<script src="/assets/plugin/highlight/highlight.js"></script>
+<script src="/assets/plugin/search/search.js"></script>
+<script src="/assets/plugin/zoom/zoom.js"></script>
+<script src="/assets/plugin/notes/notes.js"></script>
+<script src="/assets/plugin/math/math.js"></script>
+<script>
+  // https://revealjs.com/config/
+
+  Reveal.initialize({
+    // Display presentation control arrows
+    controls: true,
+
+    // Determines where controls appear, "edges" or "bottom-right"
+    controlsLayout: 'bottom-right',
+
+    // Visibility rule for backwards navigation arrows; "faded", "hidden"
+    // or "visible"
+    controlsBackArrows: 'faded',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Vertical centering of slides
+    center: true,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Enables touch navigation on devices with touch input
+    touch: true,
+
+    // Add the current slide number to the URL hash so that reloading the
+    // page/copying the URL will return you to the same slide
+    hash: true,
+
+    // Push each slide change to the browser history.  Implies `hash: true`
+    history: false,
+
+    transition: 'slide',
+
+    // Display the page number of the current slide
+    // - true:    Show slide number
+    // - false:   Hide slide number
+    //
+    // Can optionally be set as a string that specifies the number formatting:
+    // - "h.v":   Horizontal . vertical slide number (default)
+    // - "h/v":   Horizontal / vertical slide number
+    // - "c":   Flattened slide number
+    // - "c/t":   Flattened slide number / total slides
+    //
+    // Alternatively, you can provide a function that returns the slide
+    // number for the current slide. The function should take in a slide
+    // object and return an array with one string [slideNumber] or
+    // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+    slideNumber:  'c' ,
+
+
+    // Can be used to limit the contexts in which the slide number appears
+    // - "all":      Always show the slide number
+    // - "print":    Only when printing to PDF
+    // - "speaker":  Only in the speaker view
+    showSlideNumber: 'all',
+
+    // https://revealjs.com/plugins/#built-in-plugins
+    plugins: [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealSearch,
+      RevealZoom,
+      RevealNotes,
+      RevealMath
+    ]
+  });
+</script>
+
+</body>
+</html>

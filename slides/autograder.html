@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Slides | CS 221 - C and Systems Programming</title>
+    <meta name="description" content="">
+    <meta name="author" content="Phil Peterson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/slides/autograder">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="CS 221 - C and Systems Programming" href="/feed.xml"/>
+
+    <!-- Code highlighting theme used for highlight.js in reveal.js slides -->
+    <link rel="stylesheet" href="/assets/plugin/highlight/classic-like.css">
+
+		<!-- Code highlighting theme used for rouge in jekyll pages
+    <link rel="stylesheet" href="/assets/css/rouge-highlight/github-dark.css">
+    -->
+    <!-- Reveal CSS -->
+    <link rel="stylesheet" href="/assets/dist/reset.css">
+    <link rel="stylesheet" href="/assets/dist/reveal.css">
+    <link rel="stylesheet" href="/assets/dist/theme/dons.css" id="theme">
+
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown
+                 data-separator="^---"
+                 data-separator-vertical="^___"
+                 data-charset="utf-8"
+                 data-notes="^Note:">
+            <script type="text/template"># Autograder
+
+`grade` is a python script designed to build and test student projects
+---
+1. Clone the `autograder` repo into the home directory on your machine
+    ```sh
+    $ cd ~
+    $ git clone git@github.com:/phpeterson-usf/autograder
+    ```
+1. Put it on your `PATH` in `~/.bashrc`
+    ```sh
+    $ micro .bashrc
+    ```
+    Add to the bottom of `.bashrc`
+    ```sh
+    export PATH=~/autograder:$PATH
+    ```
+1. Run `.bashrc`
+    ```sh
+    $ source .bashrc
+    ```
+---
+1. Clone the `tests` repo for our class onto your machine
+    ```sh
+    $ cd ~
+    $ git clone git@github.com:/cs221-s22/tests
+    ```
+
+2. New test cases will be added for each assignment so you will
+    ```sh
+    $ cd ~/tests
+    $ git pull
+    ```
+    at least once per week
+---
+1. To use `grade`
+    ```sh
+    user@host:~/lab02-yourgithubid $ grade test -p lab02
+    . tc1+ tc2+ tc3+ tc4+ 100/100
+    ```
+
+2. If you fail a test case and want to see why
+    ```sh
+    user@host:~/lab02-yourgithubid $ grade test -v -p lab02
+    ```
+    -v (verbose) means print the expected input and expected vs. actual output for failing test cases. Actual vs. expected is printed in diff format.
+---
+1. `grade` has configuration options in `~/.config/grade/config.toml`
+2. If you want to put `tests` somewhere besides `~` you can edit `config.toml`
+    ```sh
+    testspath = "~/cs221/tests"
+    ```
+3. More configuration options are available in the [README](https://github.com/phpeterson-usf/autograder/)</script>
+        </section>
+
+    </div>
+</div>
+<script src="/assets/dist/reveal.js"></script>
+<script src="/assets/plugin/markdown/markdown.js"></script>
+<script src="/assets/plugin/highlight/highlight.js"></script>
+<script src="/assets/plugin/search/search.js"></script>
+<script src="/assets/plugin/zoom/zoom.js"></script>
+<script src="/assets/plugin/notes/notes.js"></script>
+<script src="/assets/plugin/math/math.js"></script>
+<script>
+  // https://revealjs.com/config/
+
+  Reveal.initialize({
+    // Display presentation control arrows
+    controls: true,
+
+    // Determines where controls appear, "edges" or "bottom-right"
+    controlsLayout: 'bottom-right',
+
+    // Visibility rule for backwards navigation arrows; "faded", "hidden"
+    // or "visible"
+    controlsBackArrows: 'faded',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Vertical centering of slides
+    center: true,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Enables touch navigation on devices with touch input
+    touch: true,
+
+    // Add the current slide number to the URL hash so that reloading the
+    // page/copying the URL will return you to the same slide
+    hash: true,
+
+    // Push each slide change to the browser history.  Implies `hash: true`
+    history: false,
+
+    transition: 'slide',
+
+    // Display the page number of the current slide
+    // - true:    Show slide number
+    // - false:   Hide slide number
+    //
+    // Can optionally be set as a string that specifies the number formatting:
+    // - "h.v":   Horizontal . vertical slide number (default)
+    // - "h/v":   Horizontal / vertical slide number
+    // - "c":   Flattened slide number
+    // - "c/t":   Flattened slide number / total slides
+    //
+    // Alternatively, you can provide a function that returns the slide
+    // number for the current slide. The function should take in a slide
+    // object and return an array with one string [slideNumber] or
+    // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+    slideNumber:  'c' ,
+
+
+    // Can be used to limit the contexts in which the slide number appears
+    // - "all":      Always show the slide number
+    // - "print":    Only when printing to PDF
+    // - "speaker":  Only in the speaker view
+    showSlideNumber: 'all',
+
+    // https://revealjs.com/plugins/#built-in-plugins
+    plugins: [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealSearch,
+      RevealZoom,
+      RevealNotes,
+      RevealMath
+    ]
+  });
+</script>
+
+</body>
+</html>

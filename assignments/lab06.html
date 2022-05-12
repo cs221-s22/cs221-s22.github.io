@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Lab06 - Parsing | CS 221 - C and Systems Programming</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Lab06 - Parsing" />
+<meta name="author" content="Phil Peterson" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="CS 221 - C and Systems Programming" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-12T23:29:36+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab06 - Parsing" />
+<script type="application/ld+json">
+{"url":"/assignments/lab06.html","@type":"BlogPosting","headline":"Lab06 - Parsing","dateModified":"2022-05-12T23:29:36+00:00","datePublished":"2022-05-12T23:29:36+00:00","author":{"@type":"Person","name":"Phil Peterson"},"mainEntityOfPage":{"@type":"WebPage","@id":"/assignments/lab06.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CS 221 - C and Systems Programming" /><head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">  
+</head>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 221 - C and Systems Programming</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/help/">Getting Help</a><a class="page-link" href="/syllabus/">Syllabus</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper"><h1 class="page-heading">Lab06 - Parsing</h1><div class="container">
+  Due: 
+  <span class="due-date">
+    Tue, Apr 5, 2022 at 11:59 PM 
+  </span>
+  to <a href="https://classroom.github.com/a/e68y9t5H">Github Classroom Assignment</a>
+  <hr>
+  <section id="main_content">
+    
+<h2 id="language-parsing">Language Parsing</h2>
+
+<ol>
+  <li>This lab asks you to expand on the given parser, adding code and data structures to fully implement the scanning and parsing of the language specified in the EBNF</li>
+  <li>It is still a future topic to interpret the parse tree and do something useful with it. This lab covers only parser output</li>
+  <li>Parsing refers to the process of identifying acceptable structures as defined by a language. For example, our scanner from Lab05 can accept the following:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1 + 2
+</code></pre></div>    </div>
+    <p>This results in the following sequence of tokens:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TK_INTLIT("1")
+ TK_OP("+")
+ TK_INTLIT("2")
+ TK_EOT("")
+</code></pre></div>    </div>
+  </li>
+  <li>We now need to <em>parse</em> these tokens to see if they represent a valid expression. Parsing will:
+    <ul>
+      <li>Determine if a sequence of tokens is a valid program</li>
+      <li>Construct a data structure from the tokens that can later be used for interpretation or compilation</li>
+    </ul>
+  </li>
+  <li>
+    <p>The token sequence above can be represented as the following tree:</p>
+
+    <p><img src="/assets/img/parse-tree-1.jpg" alt="parse-tree-1" /></p>
+  </li>
+  <li>We call this a <em>parse tree</em> (or technically an <em>abstract syntax tree</em> or <em>AST</em>).
+    <ul>
+      <li>The nodes in the tree represent different parts of the structure of a valid program</li>
+      <li>In this case, the program consists of a single expression</li>
+      <li>This expression is an operator with two arguments (or operands). The expression operator is a PLUS (“+”) and the two operands are both <code class="language-plaintext highlighter-rouge">intval</code></li>
+      <li>We can represent this tree structure as a string:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> EXPR OPER2 PLUS
+ ..EXPR INTVAL 1
+ ..EXPR INTVAL 2
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Consider the following program:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> (1 + 2) * 3
+</code></pre></div>    </div>
+    <p>The scan tokens are:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TK_LPAREN("(")
+ TK_INTLIT("1")
+ TK_PLUS("+")
+ TK_INTLIT("2")
+ TK_RPAREN(")")
+ TK_MULT("*")
+ TK_INTLIT("3")
+ TK_EOT("")
+</code></pre></div>    </div>
+    <p>The parse tree for that token sequence is:</p>
+
+    <p><img src="/assets/img/parse-tree-2.jpg" alt="parse-tree-2" /></p>
+
+    <p>The string representation of that parse tree is:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> EXPR OPER2 MULT
+ ..EXPR OPER2 PLUS
+ ....EXPR INTVAL 1
+ ....EXPR INTVAL 2
+ ..EXPR INTVAL 3
+</code></pre></div>    </div>
+  </li>
+  <li>Notice that in both the tree and the string output there are no parentheses. This is because the tree form implicitly represents grouping. We discard the parens themselves, but not what they represent in terms of program structure.
+Here is the EBNF for the scanner of our language:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tokenlist   = (token)*
+ token       = integer | symbol
+ integer     = digit (digit)*
+ symbol      = '+' | '-' | '*' | '/' | '(' | ')'
+ digit       = '0' | ... | '9'
+ # Ignore
+ whitespace  =  (' ' | '\t') (' ' | '\t')*
+</code></pre></div>    </div>
+  </li>
+  <li>We can also represent the structure of valid programs with the EBNF:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> program     = expression EOT
+ expression  = operand (operator operand)*
+ operand     = integer | '-' operand | '(' expression ')'
+</code></pre></div>    </div>
+  </li>
+  <li>We will limit valid programs to expessions. For example, the following are valid expressions:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1 + 2
+ (1 + 2) * 3
+ 4 * (10 / 5)
+ (2 * (3 + (1 + 1)))
+ -4 + 3
+ -4 + -4
+</code></pre></div>    </div>
+  </li>
+  <li>Just like with scanning, the EBNF specifies valid programs in terms of tokens
+    <ul>
+      <li>An expression can be an operand followed by an operator and another operand</li>
+      <li>An operand can be an integer, or a ‘-‘ then an operand, or another expression within parens</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="c-implementation">C Implementation</h2>
+
+<ol>
+  <li>We need a data structure in C that will represent the tree structures given above. Here is the <code class="language-plaintext highlighter-rouge">struct</code> we will use:
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">enum</span> <span class="n">parse_expr_enum</span> <span class="p">{</span><span class="n">EX_INTVAL</span><span class="p">,</span> <span class="n">EX_OPER1</span><span class="p">,</span> <span class="n">EX_OPER2</span><span class="p">};</span>
+ <span class="k">enum</span> <span class="n">parse_oper_enum</span> <span class="p">{</span><span class="n">OP_PLUS</span><span class="p">,</span> <span class="n">OP_MINUS</span><span class="p">,</span> <span class="n">OP_MULT</span><span class="p">,</span> <span class="n">OP_DIV</span><span class="p">};</span>
+ <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="p">{</span>    
+     <span class="k">enum</span> <span class="n">parse_expr_enum</span> <span class="n">type</span><span class="p">;</span>
+     <span class="k">union</span> <span class="p">{</span>
+         <span class="k">struct</span> <span class="p">{</span>
+             <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+         <span class="p">}</span> <span class="n">intval</span><span class="p">;</span>
+         <span class="k">struct</span> <span class="p">{</span>
+             <span class="k">enum</span> <span class="n">parse_oper_enum</span> <span class="n">oper</span><span class="p">;</span>
+             <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="o">*</span><span class="n">expr</span><span class="p">;</span>
+         <span class="p">}</span> <span class="n">oper1</span><span class="p">;</span>
+         <span class="k">struct</span> <span class="p">{</span>
+             <span class="k">enum</span> <span class="n">parse_oper_enum</span> <span class="n">oper</span><span class="p">;</span>
+             <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="o">*</span><span class="n">left</span><span class="p">;</span>
+             <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="o">*</span><span class="n">right</span><span class="p">;</span>
+         <span class="p">}</span> <span class="n">oper2</span><span class="p">;</span>
+     <span class="p">};</span>
+ <span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>We will derive a <em>recursive descent parser</em> from the EBNF for expressions given above to construct a tree of <code class="language-plaintext highlighter-rouge">parse_node_st</code> structs. As with scanning, we will write a function for each production in the grammar.</li>
+  <li>We will have two parse functions:
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="o">*</span> <span class="nf">parse_operand</span><span class="p">(</span><span class="k">struct</span> <span class="n">parse_table_st</span> <span class="o">*</span><span class="n">pt</span><span class="p">,</span> 
+                                      <span class="k">struct</span> <span class="n">scan_table_st</span> <span class="o">*</span><span class="n">st</span><span class="p">);</span>
+ <span class="k">struct</span> <span class="n">parse_node_st</span> <span class="o">*</span> <span class="nf">parse_expression</span><span class="p">(</span><span class="k">struct</span> <span class="n">parse_table_st</span> <span class="o">*</span><span class="n">pt</span><span class="p">,</span> 
+                                         <span class="k">struct</span> <span class="n">scan_table_st</span> <span class="o">*</span><span class="n">st</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <p>Given a sequence of tokens in a <code class="language-plaintext highlighter-rouge">scan_table_st</code>, we will recursively construct a parse tree by allocating <code class="language-plaintext highlighter-rouge">parse_node_st</code> structs.</p>
+  </li>
+</ol>
+
+<h2 id="requirements">Requirements</h2>
+
+<ol>
+  <li>You will implement a parser, called <code class="language-plaintext highlighter-rouge">lab06</code>, generated by a <code class="language-plaintext highlighter-rouge">Makefile</code></li>
+  <li>Your parser will:
+    <ul>
+      <li>Take an input expression on the command line after the “-e” option</li>
+      <li>Scan the input expression string into tokens</li>
+      <li>Parse the tokens into a tree of <code class="language-plaintext highlighter-rouge">parse_node_st</code></li>
+      <li>Walk the tree to generate indented output as shown</li>
+      <li>Your parser will to base conversion from <code class="language-plaintext highlighter-rouge">TK_BINLIT</code> and <code class="language-plaintext highlighter-rouge">TK_HEXLIT</code> into an <code class="language-plaintext highlighter-rouge">int</code> for <code class="language-plaintext highlighter-rouge">intval</code> operands</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">autograder</code> test cases will be provided</li>
+</ol>
+
+<h2 id="example-output">Example Output</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./lab06 <span class="nt">-e</span> <span class="s2">"1 + 2"</span>
+EXPR OPER2 PLUS
+..EXPR INTVAL 1
+..EXPR INTVAL 2
+
+./lab06 <span class="nt">-e</span> <span class="s2">"(1 + 2) * 3"</span>
+EXPR OPER2 MULT
+..EXPR OPER2 PLUS
+....EXPR INTVAL 1
+....EXPR INTVAL 2
+..EXPR INTVAL 3
+
+./lab06 <span class="nt">-e</span> <span class="s2">"4 * (10 / 5)"</span>
+EXPR OPER2 MULT
+..EXPR INTVAL 4
+..EXPR OPER2 DIV
+....EXPR INTVAL 10
+....EXPR INTVAL 5
+
+./lab06 <span class="nt">-e</span> <span class="s2">"(2 * (3 + (1 + 1)))"</span>
+EXPR OPER2 MULT
+..EXPR INTVAL 2
+..EXPR OPER2 PLUS
+....EXPR INTVAL 3
+....EXPR OPER2 PLUS
+......EXPR INTVAL 1
+......EXPR INTVAL 1
+
+./lab06 <span class="nt">-e</span> <span class="s2">"-4 + 3"</span>
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR INTVAL 3
+
+./lab06 <span class="nt">-e</span> <span class="s2">"-4 + -4"</span>
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+
+./lab06 <span class="nt">-e</span> <span class="s2">"1 + 0xa"</span>
+EXPR OPER2 PLUS
+..EXPR INTVAL 1
+..EXPR INTVAL 10
+
+./lab06 <span class="nt">-e</span> <span class="s2">"1 + 0xff"</span>
+EXPR OPER2 PLUS
+..EXPR INTVAL 1
+..EXPR INTVAL 255
+</code></pre></div></div>
+
+  </section>
+</div>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>
